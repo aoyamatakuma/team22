@@ -54,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\koyama\Timer.cs" />
+     <Compile Include="Assets\koyama\UnityChan\2DUnitychan\Scenes\Scripts\BattleSpriteAction.cs" />
+     <Compile Include="Assets\koyama\UnityChan\2DUnitychan\Scenes\Scripts\EmoteSpriteAction.cs" />
+     <Compile Include="Assets\koyama\UnityChan\2DUnitychan\Scenes\Scripts\SpriteAction.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/K017A2037/Documents/Team22/star/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
