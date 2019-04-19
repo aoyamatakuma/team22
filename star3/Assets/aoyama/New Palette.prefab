@@ -37,6 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4500356226069746}
   - component: {fileID: 2569400265705324352}
+  - component: {fileID: 114265412350033334}
+  - component: {fileID: 114399554527250810}
   m_Layer: 31
   m_Name: New Palette
   m_TagString: Untagged
@@ -83,6 +85,42 @@ MonoBehaviour:
   m_Name: Palette Settings
   m_EditorClassIdentifier: 
   cellSizing: 0
+--- !u!114 &114265412350033334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976280598011078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5adec8152e9ca043aa5505648deee1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  jumpForce: 250
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isDead: 0
+  isJump: 0
+--- !u!114 &114399554527250810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976280598011078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee98753fa14ef5d4ca8cedbe5f26f316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  jumpForce: 250
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isDead: 0
+  isJump: 0
 --- !u!156049354 &2569400265705324352
 Grid:
   m_ObjectHideFlags: 1
