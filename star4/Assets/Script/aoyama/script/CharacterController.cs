@@ -10,6 +10,8 @@ public class CharacterController : MonoBehaviour {
     public bool isJump;
     public bool isGround;
     public bool isSimultaneous;
+    public bool isAppeal;
+    public bool isOn;
     Animator anim;
     float test = 0;
     float count;
@@ -26,6 +28,8 @@ public class CharacterController : MonoBehaviour {
         isJump = false;
         isGround = false;
         isSimultaneous = false;
+        isAppeal = false;
+        isOn = false;
     }
 
     void Update()
@@ -58,7 +62,32 @@ public class CharacterController : MonoBehaviour {
             pos.x *= -1;
             transform.localScale = pos;
         }
+
+
+        if (Input.GetKey(KeyCode.B)&&isJump==true)
+        {
+            isAppeal = true;
+        }
+        else
+        {
+            isAppeal = false;
+        }
         
+        if(isAppeal==true)
+        {
+            if (isOn == false)
+            {
+
+            anim.SetTrigger("Appeal");
+            }
+            isOn = true;
+        }
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            anim.SetTrigger("Appealend");
+            isOn = false;
+        }
+
     }
     void OnTriggerStay2D(Collider2D col)
     {
@@ -66,6 +95,7 @@ public class CharacterController : MonoBehaviour {
         {
             if (isDead) { return; }
             isJump = true;
+            
         }
     }
 
