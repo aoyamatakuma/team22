@@ -13,7 +13,11 @@ public class CharacterController : MonoBehaviour {
     public bool isOn;
     Animator anim;
     float count;
-    
+
+
+
+    public bool isBound;
+
     string inputHorizontal;
     string inputJump;
 
@@ -28,6 +32,8 @@ public class CharacterController : MonoBehaviour {
         isSimultaneous = false;
         isAppeal = false;
         isOn = false;
+
+        isBound = false;
 
 
         if (gameObject.tag == "Player1")
@@ -45,7 +51,7 @@ public class CharacterController : MonoBehaviour {
             inputHorizontal = "GamePad3_Horizontal";
             inputJump = "GamePad3_Jump";
         }
-        else if (gameObject.tag == "Player4")
+        else
         {
             inputHorizontal = "GamePad4_Horizontal";
             inputJump = "GamePad4_Jump";
@@ -58,10 +64,19 @@ public class CharacterController : MonoBehaviour {
         Jump();
 
         float h = Input.GetAxis(inputHorizontal);
-        float hh = Input.GetAxis("Horizontal");
+        float hh = Input.GetAxis("PlayerHorizontal");
 
+        if (h !=0)
+        {
         rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
+
+        }
+        if (hh != 0)
+        {
+            
         rigidPlayer.velocity = new Vector2(speed * hh, rigidPlayer.velocity.y);
+
+        }
         anim.SetFloat("run", Mathf.Abs(h));//runパラメーター
         if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
         {
@@ -73,7 +88,7 @@ public class CharacterController : MonoBehaviour {
         }
 
 
-        if (Input.GetKey(KeyCode.LeftArrow) && transform.localScale.x > 0&& isSimultaneous == false|| Input.GetKey(KeyCode.RightArrow) && transform.localScale.x < 0&&isSimultaneous == false)
+        if(Input.GetAxis(inputHorizontal) > 0f && transform.localScale.x < 0|| Input.GetAxis(inputHorizontal) < 0f && transform.localScale.x > 0)     
         {
             Vector2 pos = transform.localScale;
             pos.x *= -1;
@@ -112,22 +127,28 @@ public class CharacterController : MonoBehaviour {
         {          
             isJump = true;            
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         anim.SetTrigger("stand");
+        if(col.gameObject.tag=="head")
+            {
+            isBound=true;
+        }
     }
 
 
     void Jump()
     {
-        if (Input.GetButton(inputJump) && (isJump == true))
+        if (Input.GetButton(inputJump) && (isJump == true)||isBound==true)
         {
             anim.SetTrigger("jump");
             rigidPlayer.velocity = Vector2.zero;
             rigidPlayer.AddForce(Vector2.up * jumpForce);
             isJump = false;
+            isBound = false;
         }
     }
 }
