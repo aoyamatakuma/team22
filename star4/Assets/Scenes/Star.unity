@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 365554371}
   - component: {fileID: 365554370}
   - component: {fileID: 365554369}
+  - component: {fileID: 365554375}
   m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
@@ -246,11 +247,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 250
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
   isDead: 0
   isJump: 0
+  isGround: 0
+  isSimultaneous: 0
+  isAppeal: 0
+  isOn: 0
 --- !u!61 &365554370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -386,6 +388,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &365554375
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365554368}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2e8db0e0a5ffe741ab69da428a50a70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &396761456
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +421,7 @@ GameObject:
   - component: {fileID: 396761459}
   - component: {fileID: 396761458}
   - component: {fileID: 396761457}
+  - component: {fileID: 396761463}
   m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
@@ -421,11 +443,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 250
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
   isDead: 0
   isJump: 0
+  isGround: 0
+  isSimultaneous: 0
+  isAppeal: 0
+  isOn: 0
 --- !u!61 &396761458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -561,6 +584,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &396761463
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396761456}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2e8db0e0a5ffe741ab69da428a50a70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +767,7 @@ GameObject:
   - component: {fileID: 649714073}
   - component: {fileID: 649714072}
   - component: {fileID: 649714071}
+  - component: {fileID: 649714077}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -746,11 +789,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 250
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
   isDead: 0
   isJump: 0
+  isGround: 0
+  isSimultaneous: 0
+  isAppeal: 0
+  isOn: 0
 --- !u!61 &649714072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -886,6 +930,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &649714077
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649714070}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2e8db0e0a5ffe741ab69da428a50a70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &874792960
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +963,7 @@ GameObject:
   - component: {fileID: 874792963}
   - component: {fileID: 874792962}
   - component: {fileID: 874792961}
+  - component: {fileID: 874792967}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -921,11 +985,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 250
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
   isDead: 0
   isJump: 0
+  isGround: 0
+  isSimultaneous: 0
+  isAppeal: 0
+  isOn: 0
 --- !u!61 &874792962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1061,6 +1126,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &874792967
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874792960}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2e8db0e0a5ffe741ab69da428a50a70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1656024941
 GameObject:
   m_ObjectHideFlags: 0
