@@ -5,42 +5,63 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour {
     Rigidbody2D rigidPlayer;
     public float speed = 3.0f;
-    public float jumpForce = 250.0f;
-
-    
+    public float jumpForce = 250.0f; 
     public bool isJump;
     public bool isGround;
     public bool isSimultaneous;
     public bool isAppeal;
     public bool isOn;
-
-
     Animator anim;
     float count;
-    string JumpUp;
+    
+    string inputHorizontal;
+    string inputJump;
+
 
     void Start()
     {
         rigidPlayer = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
-        JumpUp = "JumpUp";
+        
         isJump = false;
         isGround = false;
         isSimultaneous = false;
         isAppeal = false;
         isOn = false;
+
+
+        if (gameObject.tag == "Player1")
+        {
+            inputHorizontal = "GamePad1_Horizontal";
+            inputJump = "GamePad1_Jump";
+        }
+        else if (gameObject.tag == "Player2")
+        {
+            inputHorizontal = "GamePad2_Horizontal";
+            inputJump = "GamePad2_Jump";
+        }
+        else if (gameObject.tag == "Player3")
+        {
+            inputHorizontal = "GamePad3_Horizontal";
+            inputJump = "GamePad3_Jump";
+        }
+        else if (gameObject.tag == "Player4")
+        {
+            inputHorizontal = "GamePad4_Horizontal";
+            inputJump = "GamePad4_Jump";
+        }
+
     }
 
     void Update()
     {
         Jump();
 
-        
-
-        float h = Input.GetAxis("Horizontal");
+        float h = Input.GetAxis(inputHorizontal);
+        float hh = Input.GetAxis("Horizontal");
 
         rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
+        rigidPlayer.velocity = new Vector2(speed * hh, rigidPlayer.velocity.y);
         anim.SetFloat("run", Mathf.Abs(h));//runパラメーター
         if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
         {
@@ -101,7 +122,7 @@ public class CharacterController : MonoBehaviour {
 
     void Jump()
     {
-        if (Input.GetButton(JumpUp) && (isJump == true))
+        if (Input.GetButton(inputJump) && (isJump == true))
         {
             anim.SetTrigger("jump");
             rigidPlayer.velocity = Vector2.zero;

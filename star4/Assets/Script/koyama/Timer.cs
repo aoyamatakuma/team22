@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour {
 	[SerializeField]
 	private float seconds;
 
+         
 	//　前回Update時の秒数
 	private float oldSeconds;
 	private Text timerText;
@@ -40,7 +41,6 @@ public class Timer : MonoBehaviour {
 		{
 			timerText.color = new Color(255f / 255f, 93f / 255f, 93f / 255f);
 anim.SetTrigger("Trigger");
-Debug.Log("ffffffff");
 		}
 		
 		//　一旦トータルの制限時間を計測；
@@ -58,7 +58,8 @@ Debug.Log("ffffffff");
 		oldSeconds = seconds;
 		//　制限時間以下になったらコンソールに『制限時間終了』という文字列を表示する
 		if(totalTime <= 0f) {
-			Debug.Log("制限時間終了");
-		}
+            Debug.Log("制限時間終了");
+            SceneManager.LoadScene("Ending");
+        }
 	}
     }

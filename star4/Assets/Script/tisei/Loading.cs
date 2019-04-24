@@ -11,11 +11,23 @@ public class Loading : MonoBehaviour
     public GameObject LoadingUi;
     public Slider Slider;
 
+
+
     public void LoadNextScene()
     {
         LoadingUi.SetActive(true);
         StartCoroutine(LoadScene());
     }
+
+    //************ 青山ここから
+    public void Update()
+    {
+        if (Input.GetButton("JumpUp"))
+        {
+            SceneManager.LoadScene("Star");
+        }
+    }
+    //************ 青山ここまで
 
     IEnumerator LoadScene()
     {

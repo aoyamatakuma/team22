@@ -27,4 +27,15 @@ public class EndingLoad : MonoBehaviour
             yield return null;
         }
     }
+
+    //************ 青山ここから
+    public void Update()
+    {
+        if (Input.GetButton("JumpUp"))
+        {
+            SceneManager.LoadScene("Star");
+
+        }
+    }
+    //************ 青山ここまで
 }
