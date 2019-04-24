@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Loading : MonoBehaviour
+public class Menu : MonoBehaviour
 {
 
     private AsyncOperation async;
@@ -22,12 +22,19 @@ public class Loading : MonoBehaviour
     //************ 青山ここから
     public void Update()
     {
+        if (Input.GetButton("Back"))
+        {
+            Application.Quit();
+            Debug.Log("111111");
+        }
         if (Input.GetButton("JumpUp"))
         {
             SceneManager.LoadScene("Star");
         }
+
     }
     //************ 青山ここまで
+  
 
     IEnumerator LoadScene()
     {
@@ -39,4 +46,5 @@ public class Loading : MonoBehaviour
             yield return null;
         }
     }
+
 }
