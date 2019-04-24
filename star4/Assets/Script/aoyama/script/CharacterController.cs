@@ -11,6 +11,12 @@ public class CharacterController : MonoBehaviour {
     public bool isSimultaneous;
     public bool isAppeal;
     public bool isOn;
+<<<<<<< HEAD
+=======
+
+    public bool islight;
+
+>>>>>>> origin/masa
     Animator anim;
     float count;
 
@@ -33,6 +39,7 @@ public class CharacterController : MonoBehaviour {
         isAppeal = false;
         isOn = false;
 
+<<<<<<< HEAD
         isBound = false;
 
 
@@ -57,6 +64,9 @@ public class CharacterController : MonoBehaviour {
             inputJump = "GamePad4_Jump";
         }
 
+=======
+        islight = false;
+>>>>>>> origin/masa
     }
 
     void Update()

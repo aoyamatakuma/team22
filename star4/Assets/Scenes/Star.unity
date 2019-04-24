@@ -351,9 +351,15 @@ MonoBehaviour:
   isSimultaneous: 0
   isAppeal: 0
   isOn: 0
+<<<<<<< HEAD
   isBound: 0
 --- !u!70 &365554370
 CapsuleCollider2D:
+=======
+  islight: 0
+--- !u!61 &365554370
+BoxCollider2D:
+>>>>>>> origin/masa
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -466,7 +472,11 @@ Transform:
   m_Children:
   - {fileID: 1334760575}
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 7
+=======
+  m_RootOrder: 8
+>>>>>>> origin/masa
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &365554375
 Animator:
@@ -528,9 +538,15 @@ MonoBehaviour:
   isSimultaneous: 0
   isAppeal: 0
   isOn: 0
+<<<<<<< HEAD
   isBound: 0
 --- !u!70 &396761458
 CapsuleCollider2D:
+=======
+  islight: 0
+--- !u!61 &396761458
+BoxCollider2D:
+>>>>>>> origin/masa
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -912,9 +928,15 @@ MonoBehaviour:
   isSimultaneous: 0
   isAppeal: 0
   isOn: 0
+<<<<<<< HEAD
   isBound: 0
 --- !u!70 &649714072
 CapsuleCollider2D:
+=======
+  islight: 0
+--- !u!61 &649714072
+BoxCollider2D:
+>>>>>>> origin/masa
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1063,9 +1085,13 @@ GameObject:
   - component: {fileID: 874792962}
   - component: {fileID: 874792961}
   - component: {fileID: 874792967}
+<<<<<<< HEAD
   - component: {fileID: 874792969}
   - component: {fileID: 874792968}
   m_Layer: 0
+=======
+  m_Layer: 8
+>>>>>>> origin/masa
   m_Name: 1
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -1091,7 +1117,11 @@ MonoBehaviour:
   isSimultaneous: 0
   isAppeal: 0
   isOn: 0
+<<<<<<< HEAD
   isBound: 0
+=======
+  islight: 0
+>>>>>>> origin/masa
 --- !u!61 &874792962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2127,6 +2157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022946085
@@ -2159,6 +2190,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 649714076}
   m_RootOrder: 0
+=======
+  m_RootOrder: 7
+>>>>>>> origin/masa
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2022946087
 BoxCollider2D:
