@@ -5,23 +5,25 @@ using UnityEngine;
 public class Spotlight : MonoBehaviour
 {
     public LayerMask layermask;
-    public GameObject obj;
-    private List<Vector2> pos = new List<Vector2>();
-    public int time ,a=0;
-    private List<GameObject> objs = new List<GameObject>();
+    public GameObject spotLight;
+    int time ,lightNum;
 
-    public List<GameObject> light = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> Players = new List<GameObject>();
+
+    public List<GameObject> lightPos = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-
+        time = 0;
+        lightNum = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         time++;
-        Vector3 pos = obj.transform.position;
+        Vector3 pos = spotLight.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(pos, new Vector3(pos.x,pos.y+(-1)), 100,layermask);
 
         // 可視化
@@ -30,30 +32,35 @@ public class Spotlight : MonoBehaviour
         // コンソールにhitしたGameObjectを出力
         if (hit.collider)
         {
-            if (objs.Count==0)
+            //他に誰もスポットライトに触ってなければislightをtrueにする
+            if (Players.Count==0)
             {
-                objs.Add(hit.collider.gameObject);
-
-                Debug.Log(objs.Count);
+                Players.Add(hit.collider.gameObject);
+                Players[0].GetComponent<CharacterController>().islight = true;
+                Debug.Log(Players.Count);
             }
             Debug.Log(hit.collider);
         }
-        else
+        else 
         {
-            objs.Clear();
+            if (Players.Count >= 1)
+            {
+                Players[0].GetComponent<CharacterController>().islight = false;
+            }
+            Players.Clear();
         }
 
-        if(time>=30)
-        {
-            
-            obj.transform.position = light[a].transform.position;
-            a++;
-            time = 0;
-            if(a>2)
-            {
-                a = 0;
-            }
-        }
+        //スポットライトの位置を一定時間ごとに変更する
+        //if(time>=30)
+        //{
+        //    spotLight.transform.position = lightPos[lightNum].transform.position;
+        //    lightNum++;
+        //    time = 0;
+        //    if(lightNum>2)
+        //    {
+        //        lightNum = 0;
+        //    }
+        //}
     }
 
     

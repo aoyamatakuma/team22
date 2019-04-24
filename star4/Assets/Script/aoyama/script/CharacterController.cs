@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour {
     public bool isAppeal;
     public bool isOn;
 
+    public bool islight;
 
     Animator anim;
     float count;
@@ -30,6 +31,8 @@ public class CharacterController : MonoBehaviour {
         isSimultaneous = false;
         isAppeal = false;
         isOn = false;
+
+        islight = false;
     }
 
     void Update()

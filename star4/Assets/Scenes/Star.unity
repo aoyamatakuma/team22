@@ -346,12 +346,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 250
-  isDead: 0
   isJump: 0
   isGround: 0
   isSimultaneous: 0
   isAppeal: 0
   isOn: 0
+  islight: 0
 --- !u!61 &365554370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &365554375
 Animator:
@@ -542,12 +542,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 250
-  isDead: 0
   isJump: 0
   isGround: 0
   isSimultaneous: 0
   isAppeal: 0
   isOn: 0
+  islight: 0
 --- !u!61 &396761458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -681,7 +681,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &396761463
 Animator:
@@ -888,12 +888,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 250
-  isDead: 0
   isJump: 0
   isGround: 0
   isSimultaneous: 0
   isAppeal: 0
   isOn: 0
+  islight: 0
 --- !u!61 &649714072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1027,7 +1027,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &649714077
 Animator:
@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 874792962}
   - component: {fileID: 874792961}
   - component: {fileID: 874792967}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1084,12 +1084,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 250
-  isDead: 0
   isJump: 0
   isGround: 0
   isSimultaneous: 0
   isAppeal: 0
   isOn: 0
+  islight: 0
 --- !u!61 &874792962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1951,5 +1951,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

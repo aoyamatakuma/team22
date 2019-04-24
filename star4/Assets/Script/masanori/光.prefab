@@ -112,10 +112,9 @@ MonoBehaviour:
   layermask:
     serializedVersion: 2
     m_Bits: 256
-  obj: {fileID: 5351015575892793275}
-  time: 0
-  a: 0
-  light:
+  spotLight: {fileID: 5351015575892793275}
+  Players: []
+  lightPos:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
