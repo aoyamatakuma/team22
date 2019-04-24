@@ -6,25 +6,25 @@ public class CharacterController : MonoBehaviour {
     Rigidbody2D rigidPlayer;
     public float speed = 3.0f;
     public float jumpForce = 250.0f;
-    public bool isDead;
+
+    
     public bool isJump;
     public bool isGround;
     public bool isSimultaneous;
     public bool isAppeal;
     public bool isOn;
+
+
     Animator anim;
-    float test = 0;
     float count;
-    //public GameObject GameOverSE;
-    //public GameObject JumpSE;
-    // Use this for initialization
+    string JumpUp;
 
     void Start()
     {
         rigidPlayer = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        isDead = false;
+        JumpUp = "JumpUp";
         isJump = false;
         isGround = false;
         isSimultaneous = false;
@@ -34,13 +34,9 @@ public class CharacterController : MonoBehaviour {
 
     void Update()
     {
-        //count += Time.deltaTime;
+        Jump();
 
-        if (Input.GetKeyDown(KeyCode.Space)&&(isJump==true))
-        {
-            Jump();
-        }
-
+        
 
         float h = Input.GetAxis("Horizontal");
 
@@ -92,10 +88,8 @@ public class CharacterController : MonoBehaviour {
     void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.tag == "Ground")
-        {
-            if (isDead) { return; }
-            isJump = true;
-            
+        {          
+            isJump = true;            
         }
     }
 
@@ -107,9 +101,12 @@ public class CharacterController : MonoBehaviour {
 
     void Jump()
     {
-        anim.SetTrigger("jump");
-        rigidPlayer.velocity = Vector2.zero;
-        rigidPlayer.AddForce(Vector2.up * jumpForce);
-        isJump = false;
+        if (Input.GetButton(JumpUp) && (isJump == true))
+        {
+            anim.SetTrigger("jump");
+            rigidPlayer.velocity = Vector2.zero;
+            rigidPlayer.AddForce(Vector2.up * jumpForce);
+            isJump = false;
+        }
     }
 }
