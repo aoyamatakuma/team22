@@ -33,7 +33,7 @@ public class EndingLoad : MonoBehaviour
     {
         if (Input.GetButton("JumpUp"))
         {
-            SceneManager.LoadScene("Star");
+            SceneManager.LoadScene("Title");
 
         }
     }

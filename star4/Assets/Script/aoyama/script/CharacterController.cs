@@ -11,12 +11,11 @@ public class CharacterController : MonoBehaviour {
     public bool isSimultaneous;
     public bool isAppeal;
     public bool isOn;
-<<<<<<< HEAD
-=======
+
 
     public bool islight;
 
->>>>>>> origin/masa
+
     Animator anim;
     float count;
 
@@ -32,14 +31,13 @@ public class CharacterController : MonoBehaviour {
     {
         rigidPlayer = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        
+
         isJump = false;
         isGround = false;
         isSimultaneous = false;
         isAppeal = false;
         isOn = false;
 
-<<<<<<< HEAD
         isBound = false;
 
 
@@ -63,10 +61,7 @@ public class CharacterController : MonoBehaviour {
             inputHorizontal = "GamePad4_Horizontal";
             inputJump = "GamePad4_Jump";
         }
-
-=======
         islight = false;
->>>>>>> origin/masa
     }
 
     void Update()
