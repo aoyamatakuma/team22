@@ -6,46 +6,21 @@ public class Spotlight : MonoBehaviour
 {
     public LayerMask layermask;
     public GameObject obj;
-    private float a,b;
-    private Vector2 vec1, vec2, vec3,vec4;
-    int i,j;
     private List<Vector2> pos = new List<Vector2>();
+    public int time ,a=0;
+    private List<GameObject> objs = new List<GameObject>();
+
+    public List<GameObject> light = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-        pos.Add(new Vector2(-4, 1));
-        pos.Add(new Vector2(2, 7));
-        pos.Add(new Vector2(4, 0));
-        pos.Add(new Vector2(5, 3));
 
-        
-
-        for(i=0;i<pos.Count;i++)
-        {
-            vec1 = pos[i];
-            for(j=i+1;j<pos.Count;j++)
-            {
-                vec2 = pos[j];
-                a = Vector2.Distance(vec1,vec2);
-                if (a >= b)
-                {
-                    b = a;
-                    vec3 = vec1;
-                    vec4 = vec2;
-                }
-
-            }
-
-            
-        }
-        Debug.Log(b);
-        Debug.Log(vec3);
-        Debug.Log(vec4);
     }
 
     // Update is called once per frame
     void Update()
     {
+        time++;
         Vector3 pos = obj.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(pos, new Vector3(pos.x,pos.y+(-1)), 100,layermask);
 
@@ -55,7 +30,29 @@ public class Spotlight : MonoBehaviour
         // コンソールにhitしたGameObjectを出力
         if (hit.collider)
         {
+            if (objs.Count==0)
+            {
+                objs.Add(hit.collider.gameObject);
+
+                Debug.Log(objs.Count);
+            }
             Debug.Log(hit.collider);
+        }
+        else
+        {
+            objs.Clear();
+        }
+
+        if(time>=30)
+        {
+            
+            obj.transform.position = light[a].transform.position;
+            a++;
+            time = 0;
+            if(a>2)
+            {
+                a = 0;
+            }
         }
     }
 
