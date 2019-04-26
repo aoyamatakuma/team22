@@ -8,8 +8,8 @@ public class Spotlight : MonoBehaviour
     public GameObject spotLight;
     int time ,lightNum;
 
-    [SerializeField]
-    private List<GameObject> Players = new List<GameObject>();
+    
+    public List<GameObject> Players = new List<GameObject>();
 
     public List<GameObject> lightPos = new List<GameObject>();
     // Start is called before the first frame update

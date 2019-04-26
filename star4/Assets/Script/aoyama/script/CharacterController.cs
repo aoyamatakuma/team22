@@ -116,6 +116,8 @@ public class CharacterController : MonoBehaviour {
             {
 
             anim.SetTrigger("Appeal");
+
+                
             }
             isOn = true;
         }
@@ -125,6 +127,10 @@ public class CharacterController : MonoBehaviour {
             isOn = false;
         }
 
+        if(isOn==true)
+        {
+            ScoreText.score++;
+        }
     }
     void OnTriggerStay2D(Collider2D col)
     {
