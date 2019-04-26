@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TitleStart : MonoBehaviour
+public class EndSelect : MonoBehaviour
 {
     Animator anim;
     int cntPause;
@@ -14,7 +14,7 @@ public class TitleStart : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         cntPause = 0;
-        anim.SetTrigger("On");
+        anim.SetTrigger("Off");
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class TitleStart : MonoBehaviour
             cntPause--;
             if (cntPause == 0)
             {
-                anim.SetTrigger("On");
+                anim.SetTrigger("Off");
             }
             if (cntPause <= 0)
             {
@@ -38,7 +38,7 @@ public class TitleStart : MonoBehaviour
 
             if (cntPause == 1)
             {
-                anim.SetTrigger("Off");
+                anim.SetTrigger("On");
             }
             if (cntPause >= 1)
             {
@@ -46,9 +46,9 @@ public class TitleStart : MonoBehaviour
             }
         }
 
-        if (cntPause == 0 && Input.GetButton("GamePad_A")) 
+        if (cntPause == 1 && Input.GetButton("GamePad_A"))
         {
-            SceneManager.LoadScene("Star");
+            Application.Quit();
         }
     }
 }
