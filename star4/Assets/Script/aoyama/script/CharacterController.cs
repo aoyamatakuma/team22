@@ -25,6 +25,7 @@ public class CharacterController : MonoBehaviour {
 
     string inputHorizontal;
     string inputJump;
+    string inputAppeal;
 
 
     void Start()
@@ -45,21 +46,25 @@ public class CharacterController : MonoBehaviour {
         {
             inputHorizontal = "GamePad1_Horizontal";
             inputJump = "GamePad1_Jump";
+            inputAppeal = "GamePad1_X";
         }
         else if (gameObject.tag == "Player2")
         {
             inputHorizontal = "GamePad2_Horizontal";
             inputJump = "GamePad2_Jump";
+            inputAppeal = "GamePad2_X";
         }
         else if (gameObject.tag == "Player3")
         {
             inputHorizontal = "GamePad3_Horizontal";
             inputJump = "GamePad3_Jump";
+            inputAppeal = "GamePad3_X";
         }
         else
         {
             inputHorizontal = "GamePad4_Horizontal";
             inputJump = "GamePad4_Jump";
+            inputAppeal = "GamePad4_X";
         }
         islight = false;
     }
@@ -71,58 +76,66 @@ public class CharacterController : MonoBehaviour {
         float h = Input.GetAxis(inputHorizontal);
         float hh = Input.GetAxis("PlayerHorizontal");
 
-        if (h !=0)
-        {
-        rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
 
+        if (isAppeal != true)
+        {
+            if (h != 0)
+            {
+                rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
+
+            }
+            if (hh != 0)
+            {
+
+                rigidPlayer.velocity = new Vector2(speed * hh, rigidPlayer.velocity.y);
+
+            }
+            anim.SetFloat("run", Mathf.Abs(h));//runパラメーター
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+            {
+                isSimultaneous = true;
+            }
+            else
+            {
+                isSimultaneous = false;
+            }
+
+
+            if (Input.GetAxis(inputHorizontal) > 0f && transform.localScale.x < 0 || Input.GetAxis(inputHorizontal) < 0f && transform.localScale.x > 0)
+            {
+                Vector2 pos = transform.localScale;
+                pos.x *= -1;
+                transform.localScale = pos;
+            }
         }
-        if (hh != 0)
-        {
-            
-        rigidPlayer.velocity = new Vector2(speed * hh, rigidPlayer.velocity.y);
-
-        }
-        anim.SetFloat("run", Mathf.Abs(h));//runパラメーター
-        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
-        {
-            isSimultaneous = true;
-        }
-        else
-        {
-            isSimultaneous = false;
-        }
 
 
-        if(Input.GetAxis(inputHorizontal) > 0f && transform.localScale.x < 0|| Input.GetAxis(inputHorizontal) < 0f && transform.localScale.x > 0)     
+        if (Input.GetButton(inputAppeal)&& isJump==true)
         {
-            Vector2 pos = transform.localScale;
-            pos.x *= -1;
-            transform.localScale = pos;
-        }
-
-
-        if (Input.GetKey(KeyCode.B)&&isJump==true)
-        {
+            isJump = false;
             isAppeal = true;
+            
         }
-        else
+        if (Input.GetButtonUp(inputAppeal) && isAppeal==true)
         {
+            isJump = true;
             isAppeal = false;
         }
         
         if(isAppeal==true)
         {
-            if (isOn == false)
-            {
-
-            anim.SetTrigger("Appeal");          
-            }
+            
+            anim.SetTrigger("Appeal");     
             isOn = true;
         }
-        if (Input.GetKeyUp(KeyCode.B))
+        if (isAppeal == false)
         {
-            anim.SetTrigger("Appealend");
             isOn = false;
+            anim.SetTrigger("Appealend");
+        }
+            //if (Input.GetButtonUp(inputAppeal))
+        {
+            
         }
     }
     void OnTriggerStay2D(Collider2D col)
