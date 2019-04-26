@@ -126,11 +126,6 @@ public class CharacterController : MonoBehaviour {
             anim.SetTrigger("Appealend");
             isOn = false;
         }
-
-        if(isOn==true&&islight==true)
-        {
-            ScoreText.score++;
-        }
     }
     void OnTriggerStay2D(Collider2D col)
     {
