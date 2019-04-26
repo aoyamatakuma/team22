@@ -115,9 +115,7 @@ public class CharacterController : MonoBehaviour {
             if (isOn == false)
             {
 
-            anim.SetTrigger("Appeal");
-
-                
+            anim.SetTrigger("Appeal");          
             }
             isOn = true;
         }

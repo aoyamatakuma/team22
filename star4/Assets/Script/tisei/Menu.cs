@@ -19,21 +19,7 @@ public class Menu : MonoBehaviour
         StartCoroutine(LoadScene());
     }
 
-    //************ 青山ここから
-    public void Update()
-    {
-        if (Input.GetButton("Back"))
-        {
-            Application.Quit();
-            Debug.Log("111111");
-        }
-        if (Input.GetButton("JumpUp"))
-        {
-            SceneManager.LoadScene("Star");
-        }
-
-    }
-    //************ 青山ここまで
+    
   
 
     IEnumerator LoadScene()

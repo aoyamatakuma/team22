@@ -1,19 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TitleStart : MonoBehaviour
 {
-    //Animator anim;
-    //GameObject pauseObject;//追加
-    //Pause script;//追加
-    //bool isEnd;
+    Animator anim;
     int cntPause;
-
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         cntPause = 0;
     }
 
@@ -25,7 +24,7 @@ public class TitleStart : MonoBehaviour
             cntPause--;
             if (cntPause == 0)
             {
-                //anim.SetTrigger("Start");
+                anim.SetTrigger("On");
             }
             if (cntPause <= 0)
             {
@@ -35,33 +34,21 @@ public class TitleStart : MonoBehaviour
         if (Input.GetAxis("GamePad_Vertical") < -0.9f)
         {
             cntPause++;
+
+            if (cntPause == 1)
+            {
+                anim.SetTrigger("Off");
+            }
             if (cntPause >= 1)
             {
                 cntPause = 1;
-                //anim.SetTrigger("Off");
             }
         }
 
-        if (Input.GetAxis("GamePad2_Vertical") > 0.9f)
+        if (cntPause == 0 && Input.GetButton("GamePad_A")) 
         {
-            cntPause--;
-            if (cntPause == 0)
-            {
-                //anim.SetTrigger("Start");
-            }
-            if (cntPause <= 0)
-            {
-                cntPause = 0;
-            }
-        }
-        if (Input.GetAxis("GamePad2_Vertical") < -0.9f)
-        {
-            cntPause++;
-            if (cntPause >= 1)
-            {
-                cntPause = 1;
-               // anim.SetTrigger("Off");
-            }
+            Debug.Log("aaaaaa");
+            SceneManager.LoadScene("Star");
         }
     }
 }
