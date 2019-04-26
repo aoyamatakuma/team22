@@ -127,7 +127,7 @@ public class CharacterController : MonoBehaviour {
             isOn = false;
         }
 
-        if(isOn==true)
+        if(isOn==true&&islight==true)
         {
             ScoreText.score++;
         }
