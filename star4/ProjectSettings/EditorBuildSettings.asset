@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Star.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Result.unity
+    guid: 409879b183c82994facc9f458ba2e600
+  - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: 9fb3c83c800ec1e4fb1bb921123fb04f
   m_configObjects: {}
