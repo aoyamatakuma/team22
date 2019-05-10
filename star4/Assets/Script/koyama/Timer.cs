@@ -19,22 +19,30 @@ public class Timer : MonoBehaviour {
 
 	Animator anim;
 
-	
+    private bool timeup = false;
 
 	void Start () {
 		totalTime = seconds;
 		oldSeconds = 0f;
 		timerText = GetComponentInChildren<Text>();
 		anim=GetComponent<Animator>();
-		
 
-		
+
+        timeup = false;
 		
 	}
 
 	void Update () {
-		//　制限時間が0秒以下なら何もしない
-		if (totalTime <= 0f) {
+
+        //　制限時間以下になったらコンソールに『制限時間終了』という文字列を表示する
+        if (timeup)
+        {
+            Debug.Log("制限時間終了");
+            SceneManager.LoadScene("Ending");
+        }
+
+        //　制限時間が0秒以下なら何もしない
+        if (totalTime <= 0f) {
 			return;
 		}
 		if(totalTime<=10f)
@@ -56,10 +64,18 @@ anim.SetTrigger("Trigger");
 			timerText.text = ((int) seconds).ToString("00");
 		}
 		oldSeconds = seconds;
-		//　制限時間以下になったらコンソールに『制限時間終了』という文字列を表示する
-		if(totalTime <= 0f) {
-            Debug.Log("制限時間終了");
-            SceneManager.LoadScene("Ending");
+
+        //　制限時間以下になったらtimeupをtrueにする
+        if (totalTime <= 0f)
+        {
+            timeup = true;
+
         }
-	}
+    }
+
+
+    public bool TimeUp()
+    {
+        return timeup;
+    }
     }
