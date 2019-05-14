@@ -31,7 +31,7 @@ public class ScoreText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ;
+        
         if (tim.GetComponent<Timer>().TimeUp())
         {
             Debug.Log("uwa----------i");
