@@ -11,7 +11,7 @@ public class Spotlight : MonoBehaviour
     
     public List<GameObject> Players = new List<GameObject>();
 
-    public List<GameObject> lightPos = new List<GameObject>();
+    //public List<GameObject> lightPos = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -50,13 +50,14 @@ public class Spotlight : MonoBehaviour
             Players.Clear();
         }
 
-        //スポットライトの位置を一定時間ごとに変更する
-        //if(time>=30)
+        ////スポットライトの位置を一定時間ごとに変更する
+        //if (time >= 30)
         //{
+            
         //    spotLight.transform.position = lightPos[lightNum].transform.position;
         //    lightNum++;
         //    time = 0;
-        //    if(lightNum>2)
+        //    if (lightNum > 2)
         //    {
         //        lightNum = 0;
         //    }
