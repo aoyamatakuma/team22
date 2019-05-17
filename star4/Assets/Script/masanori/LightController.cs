@@ -15,12 +15,15 @@ public class LightController : MonoBehaviour
 
     System.Random rand = new System.Random();
 
+    private GameObject time;
+
     int count=0, oldCount;
 
     int timer;
     // Start is called before the first frame update
     void Start()
     {
+        time = GameObject.Find("Time");
         oldCount = count;
         spotLights[count].SetActive(true);
         timer = 0;
@@ -29,25 +32,28 @@ public class LightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer++;
-        if (timer >= 120&&oldCount==count)
+        if (time.GetComponent<Timer>().GetTime())
         {
-            while (oldCount == count)
+            timer++;
+            if (timer >= 120 && oldCount == count)
             {
-                count = rand.Next(spotLights.Count);
+                while (oldCount == count)
+                {
+                    count = rand.Next(spotLights.Count);
+                }
+
+                indications[count].SetActive(true);
             }
 
-            indications[count].SetActive(true);
-        }
+            if (timer >= 180)
+            {
+                indications[count].SetActive(false);
+                spotLights[oldCount].SetActive(false);
+                spotLights[count].SetActive(true);
 
-        if(timer>=180)
-        {
-            indications[count].SetActive(false);
-            spotLights[oldCount].SetActive(false);
-            spotLights[count].SetActive(true);
-
-            oldCount = count;
-            timer = 0;
+                oldCount = count;
+                timer = 0;
+            }
         }
 
 

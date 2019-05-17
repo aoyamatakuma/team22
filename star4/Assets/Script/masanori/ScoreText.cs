@@ -32,7 +32,7 @@ public class ScoreText : MonoBehaviour
     void Update()
     {
         
-        if (tim.GetComponent<Timer>().TimeUp())
+        if (tim.GetComponent<Timer>().GetTimeUp())
         {
             Debug.Log("uwa----------i");
             Score.AddScore(score);

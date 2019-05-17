@@ -20,6 +20,7 @@ public class Timer : MonoBehaviour {
 	Animator anim;
 
     private bool timeup = false;
+    private bool tim ;
 
 	void Start () {
 		totalTime = seconds;
@@ -29,7 +30,9 @@ public class Timer : MonoBehaviour {
 
 
         timeup = false;
-		
+
+
+        tim = true;
 	}
 
 	void Update () {
@@ -71,11 +74,21 @@ anim.SetTrigger("Trigger");
             timeup = true;
 
         }
+
+        if(totalTime<=10f)
+        {
+            tim = false;
+        }
     }
 
 
-    public bool TimeUp()
+    public bool GetTimeUp()
     {
         return timeup;
+    }
+
+    public bool GetTime()
+    {
+        return tim;
     }
     }
