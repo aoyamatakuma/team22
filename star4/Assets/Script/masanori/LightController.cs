@@ -5,9 +5,7 @@ using UnityEngine;
 public class LightController : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> spotLights = new List<GameObject>();
-    //[SerializeField]
-    //GameObject [] obj = new GameObject[3];
+    GameObject spotLight;
 
     [SerializeField]
     List<GameObject> indications = new List<GameObject>();
@@ -25,7 +23,7 @@ public class LightController : MonoBehaviour
     {
         time = GameObject.Find("Time");
         oldCount = count;
-        spotLights[count].SetActive(true);
+        spotLight.SetActive(true);
         timer = 0;
     }
 
@@ -39,7 +37,7 @@ public class LightController : MonoBehaviour
             {
                 while (oldCount == count)
                 {
-                    count = rand.Next(spotLights.Count);
+                    count = rand.Next(indications.Count);
                 }
 
                 indications[count].SetActive(true);
@@ -48,8 +46,9 @@ public class LightController : MonoBehaviour
             if (timer >= 180)
             {
                 indications[count].SetActive(false);
-                spotLights[oldCount].SetActive(false);
-                spotLights[count].SetActive(true);
+                spotLight.transform.position = indications[count].transform.position-new Vector3(0,0.6f,0);
+                //spotLights[oldCount].SetActive(false);
+                //spotLights[count].SetActive(true);
 
                 oldCount = count;
                 timer = 0;
