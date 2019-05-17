@@ -8,6 +8,10 @@ TagManager:
   - Player2
   - Player1
   - Ground
+  - RightBody
+  - LeftBody
+  - LeftAttack
+  - RightAttack
   layers:
   - Default
   - TransparentFX
