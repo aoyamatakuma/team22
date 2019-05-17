@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour {
     Rigidbody2D rigidPlayer;
     public float speed = 3.0f;
-    public float jumpForce = 250.0f;
+    private float jumpForce = 250.0f;
     private float airSpeed = 1.5f;
 
 
@@ -38,6 +38,8 @@ public class CharacterController : MonoBehaviour {
     public bool isRight;
 
     public bool isAttack;//攻撃状態
+    public bool isLeftDir;//左向き
+    public bool isRightDir;//右向き
 
 
     void Start()
@@ -53,12 +55,13 @@ public class CharacterController : MonoBehaviour {
         isLeft = false;
         isRight = false;
 
+        isLeftDir = false;
+    isRightDir = false; ;//右向き
 
 
 
 
-
-        isBound = false;
+    isBound = false;
         isAttack = false;
 
         if (gameObject.tag == "Player1")
@@ -102,102 +105,105 @@ public class CharacterController : MonoBehaviour {
 
         if (isAppeal != true)
         {
-            if (h != 0)
+            if (isAttack == false)
             {
-                if (isJump == true)//地上時のスピード
+                if (h != 0)
+                {
+                    if (isJump == true)//地上時のスピード
+                        if (isLeft == true)//左に当たている時
+                        {
+                            if (h < 0)
+                            {
+                                rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
+                            }
+                            else if (h > 0)
+                            {
+                                rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
+                            }
+                        }
+                    if (isRight == true)//左に当たている時
+                    {
+                        if (h > 0)
+                        {
+                            rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
+                        }
+                        else if (h < 0)
+                        {
+                            rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
+                        }
+                    }
+
+                    if (isLeft == false && isRight == false)
+                    {
+
+                        rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
+                    }
+                }
+
+                if (isJump == false)
+                {
                     if (isLeft == true)//左に当たている時
                     {
                         if (h < 0)
                         {
-                            rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
+                            rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
                         }
                         else if (h > 0)
                         {
                             rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
                         }
                     }
-                if (isRight == true)//左に当たている時
-                {
-                    if (h > 0)
+                    if (isRight == true)//左に当たている時
                     {
-                        rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
+                        if (h > 0)
+                        {
+                            rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
+                        }
+                        else if (h < 0)
+                        {
+                            rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
+                        }
                     }
-                    else if (h < 0)
+
+                    if (isLeft == false && isRight == false)
                     {
-                        rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
-                    }
-                }
 
-                if (isLeft == false && isRight == false)
-                {
-
-                    rigidPlayer.velocity = new Vector2(speed * h, rigidPlayer.velocity.y);
-                }
-            }
-
-            if (isJump == false)
-            {
-                if (isLeft == true)//左に当たている時
-                {
-                    if (h < 0)
-                    {
                         rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
                     }
-                    else if (h > 0)
-                    {
-                        rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
-                    }
+
                 }
-                if (isRight == true)//左に当たている時
+                if (isJump == false)
                 {
-                    if (h > 0)
+                    if (isLeft == true)//左に当たている時
                     {
+                        if (h < 0)
+                        {
+                            rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
+                        }
+                        else if (h > 0)
+                        {
+                            rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
+                        }
+                    }
+                    if (isRight == true)//左に当たている時
+                    {
+                        if (h > 0)
+                        {
+                            rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
+                        }
+                        else if (h < 0)
+                        {
+                            rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
+                        }
+                    }
+
+                    if (isLeft == false && isRight == false)
+                    {
+
                         rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
                     }
-                    else if (h < 0)
-                    {
-                        rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
-                    }
+
                 }
-
-                if (isLeft == false && isRight == false)
-                {
-
-                    rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
-                }
-
-            }
-            if (isJump == false)
-            {
-                if (isLeft == true)//左に当たている時
-                {
-                    if (h < 0)
-                    {
-                        rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
-                    }
-                    else if (h > 0)
-                    {
-                        rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
-                    }
-                }
-                if (isRight == true)//左に当たている時
-                {
-                    if (h > 0)
-                    {
-                        rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
-                    }
-                    else if (h < 0)
-                    {
-                        rigidPlayer.velocity = new Vector2(0, rigidPlayer.velocity.y);
-                    }
-                }
-
-                if (isLeft == false && isRight == false)
-                {
-
-                    rigidPlayer.velocity = new Vector2(airSpeed * h, rigidPlayer.velocity.y);
-                }
-
             }
 
             if (hh != 0)
@@ -215,12 +221,28 @@ public class CharacterController : MonoBehaviour {
             {
                 isSimultaneous = false;
             }
-
+            
 
             if (Input.GetAxis(inputHorizontal) > 0f && transform.localScale.x < 0 || Input.GetAxis(inputHorizontal) < 0f && transform.localScale.x > 0)
             {
                 Vector2 pos = transform.localScale;
                 pos.x *= -1;
+                if (pos.x == 1)
+                {
+                    isLeftDir = false;
+                    isRightDir = true;
+                    Debug.Log("→");
+                    transform.GetChild(0).gameObject.transform.localScale = new Vector3(1, 1, 1);
+                    transform.GetChild(1).gameObject.transform.localScale = new Vector3(1, 1, 1);
+                }
+                if (pos.x == -1)
+                {
+                    isLeftDir = true;
+                    isRightDir = false;
+                    Debug.Log("←");
+                    transform.GetChild(0).gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                    transform.GetChild(1).gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                }
                 transform.localScale = pos;
             }
         }
@@ -275,21 +297,28 @@ public class CharacterController : MonoBehaviour {
         if (col.gameObject.tag == "LeftBody")
         {
             isLeft = false;
-            Debug.Log("jfdshfihsai");
         }
         if (col.gameObject.tag == "RightBody")
         {
             isRight = false;
-            Debug.Log("jfdshfihsai");
         }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         anim.SetTrigger("stand");
-        if(col.gameObject.tag=="head")
-            {
-            isBound=true;
+        if (col.gameObject.tag == "head")
+        {
+            isBound = true;
+        }
+
+        if (col.gameObject.tag == "RightAttack")
+        {           
+                rigidPlayer.velocity = new Vector2(3, 5);
+        }
+        if (col.gameObject.tag == "LeftAttack")
+        {
+            rigidPlayer.velocity = new Vector2(-3, 5);
         }
     }
 
@@ -310,6 +339,7 @@ public class CharacterController : MonoBehaviour {
     {
         if (Input.GetButtonDown(inputAttack) && isAttack == false && isJump == true)
         {
+            transform.GetChild(1).gameObject.SetActive(true);
             isAttack = true;
             if (transform.localScale.x > 0)
             {
@@ -320,6 +350,7 @@ public class CharacterController : MonoBehaviour {
                 rigidPlayer.velocity = new Vector2(-7, rigidPlayer.velocity.y);
             }
             yield return new WaitForSeconds(0.3f);
+            transform.GetChild(1).gameObject.SetActive(false);
             isAttack = false;
         }
     }
