@@ -17,7 +17,7 @@ public class ScoreCount : MonoBehaviour
     [SerializeField]
     private GameObject silver;
     [SerializeField]
-    private GameObject bronze;
+    private GameObject copper;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +68,7 @@ public class ScoreCount : MonoBehaviour
             }
             else if(runk==2)
             {
-                bronze.SetActive(true);
+                copper.SetActive(true);
             }
         }
 
