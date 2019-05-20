@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour
 
     IEnumerator LoadScene()
     {
-        async = SceneManager.LoadSceneAsync("Star");
+        async = SceneManager.LoadSceneAsync("Entry");
 
         while (!async.isDone)
         {
