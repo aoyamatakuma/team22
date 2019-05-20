@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
+    Slider staminaSlider;
     Rigidbody2D rigidPlayer;//物理演算
     Animator anim;//アニメーター
     private float speed = 2.0f;//地上での移動速度
@@ -36,6 +38,7 @@ public class CharacterController : MonoBehaviour
         playerStamina = stamina;//スタミナ初期値
         rigidPlayer = GetComponent<Rigidbody2D>();//物理演算取得
         anim = GetComponent<Animator>();//アニメーション取得
+        
         isJump = false;
         isAppeal = false;
         isOn = false;
@@ -54,6 +57,8 @@ public class CharacterController : MonoBehaviour
             inputJump = "GamePad1_Jump";
             inputAppeal = "GamePad1_X";
             inputAttack = "GamePad1_B";
+            staminaSlider = GameObject.Find("StaminaSlider1").GetComponent<Slider>();//スライダー取得
+            
         }
         else if (gameObject.tag == "Player2")
         {
@@ -61,6 +66,7 @@ public class CharacterController : MonoBehaviour
             inputJump = "GamePad2_Jump";
             inputAppeal = "GamePad2_X";
             inputAttack = "GamePad2_B";
+            staminaSlider = GameObject.Find("StaminaSlider2").GetComponent<Slider>();//スライダー取得
         }
         else if (gameObject.tag == "Player3")
         {
@@ -68,6 +74,7 @@ public class CharacterController : MonoBehaviour
             inputJump = "GamePad3_Jump";
             inputAppeal = "GamePad3_X";
             inputAttack = "GamePad3_B";
+            staminaSlider = GameObject.Find("StaminaSlider3").GetComponent<Slider>();//スライダー取得
         }
         else
         {
@@ -75,8 +82,10 @@ public class CharacterController : MonoBehaviour
             inputJump = "GamePad4_Jump";
             inputAppeal = "GamePad4_X";
             inputAttack = "GamePad4_B";
+            staminaSlider = GameObject.Find("StaminaSlider4").GetComponent<Slider>();//スライダー取得
         }
         //ここまで
+        staminaSlider.maxValue = playerStamina;
     }
     void Update()
     {
@@ -84,14 +93,14 @@ public class CharacterController : MonoBehaviour
         Move();
         Attack();        
         
-        if (Input.GetButton(inputAppeal) && isJump == true)
+        if (Input.GetButton(inputAppeal) && isJump == false)
         {
-            isJump = false;
+            isJump = true;
             isAppeal = true;
         }
         if (Input.GetButtonUp(inputAppeal) && isAppeal == true)
         {
-            isJump = true;
+            isJump = false;
             isAppeal = false;
         }
 
@@ -248,7 +257,8 @@ public class CharacterController : MonoBehaviour
     }
     void Attack()
     {
-        if(playerStamina<100)
+        staminaSlider.value = playerStamina;
+        if (playerStamina<100)
         {
             playerStamina += 0.1f;
         }
