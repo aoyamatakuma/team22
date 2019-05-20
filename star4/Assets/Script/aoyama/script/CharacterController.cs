@@ -4,53 +4,41 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    Rigidbody2D rigidPlayer;
-    public float speed = 3.0f;
-    private float jumpForce = 250.0f;
-    private float airSpeed = 1.5f;
+    Rigidbody2D rigidPlayer;//物理演算
+    Animator anim;//アニメーター
 
-
-
-
-
-    public bool isJump;
-    public bool isGround;
-    public bool isSimultaneous;
-    public bool isAppeal;
+    private float speed = 3.0f;//地上での移動速度
+    private float airSpeed = 1.5f;//空中での移動速度
+    private float jumpForce = 250.0f;//ジャンプの力
+    public float stamina = 100;//体力
+    private bool isJump;//ジャンプ判定
+    private bool isGround;//地面衝突判定
+    public bool isAppeal;//アピール判定
+    public bool isAttack;//攻撃状態判定
     public bool isOn;
-
-
     public bool islight;
-
-
-    Animator anim;
-    float count;
-
-
-
     public bool isBound;
 
-    string inputHorizontal;
-    string inputJump;
-    string inputAppeal;
-    string inputAttack;
+    string inputHorizontal;//コントローラースティック
+    string inputJump;//コントローラーA
+    string inputAppeal;//コントローラーX
+    string inputAttack;//コントローラーB
 
-    public bool isLeft;
-    public bool isRight;
+    public bool isLeft;//左半身あたり判定
+    public bool isRight;//右半身あたり判定
 
-    public bool isAttack;//攻撃状態
     public bool isLeftDir;//左向き
     public bool isRightDir;//右向き
 
 
     void Start()
     {
+        float playerStamina = 100;
         rigidPlayer = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         isJump = false;
         isGround = false;
-        isSimultaneous = false;
         isAppeal = false;
         isOn = false;
         isLeft = false;
@@ -213,15 +201,7 @@ public class CharacterController : MonoBehaviour
                 rigidPlayer.velocity = new Vector2(speed * hh, rigidPlayer.velocity.y);
 
             }
-            anim.SetFloat("run", Mathf.Abs(h));//runパラメーター
-            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
-            {
-                isSimultaneous = true;
-            }
-            else
-            {
-                isSimultaneous = false;
-            }
+            anim.SetFloat("run", Mathf.Abs(h));//runパラメーター         
 
 
             if (Input.GetAxis(inputHorizontal) > 0f && transform.localScale.x < 0 || Input.GetAxis(inputHorizontal) < 0f && transform.localScale.x > 0)
