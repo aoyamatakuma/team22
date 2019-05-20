@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour {
         if (timeup)
         {
             Debug.Log("制限時間終了");
-            SceneManager.LoadScene("Ending");
+            SceneManager.LoadScene("result");//Ending");
         }
 
         //　制限時間が0秒以下なら何もしない
