@@ -24,10 +24,10 @@ public class Spotlight : MonoBehaviour
     {
         time++;
         Vector3 pos = spotLight.transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(pos, new Vector3(pos.x,pos.y+(-1)), 100,layermask);
+        RaycastHit2D hit = Physics2D.Raycast(pos, new Vector3(0,-1), 100,layermask);
 
         // 可視化
-        Debug.DrawRay(pos, new Vector3(0, 0, 100), Color.black, 1);
+        Debug.DrawRay(pos, new Vector3(0, 1, 0), Color.black, 1);
 
         // コンソールにhitしたGameObjectを出力
         if (hit.collider)
