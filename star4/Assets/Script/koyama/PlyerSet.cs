@@ -13,30 +13,34 @@ public class PlyerSet : MonoBehaviour
     private GameObject Player3;
     [SerializeField]
     private GameObject Player4; 
+    void Start()
+    {
+    }
 
  void Update() {   
-      if (gameObject.tag == "Player1")
+      if (Player1.tag == "Player1")
         {
+                Debug.Log("uofdiuvsdfvhsei");
            if(Input.GetButton("GamePad1_Jump"))
       {
             Player1.SetActive (true);
       } 
         }
-         else if(gameObject.tag == "Player2")
+         else if(Player2.tag == "Player2")
         {
            if(Input.GetButton("GamePad2_Jump"))
       {
             Player2.SetActive (true);
       } 
         }
-         else if(gameObject.tag == "Player3")
+         else if(Player3.tag  == "Player3")
         {
            if(Input.GetButton("GamePad3_Jump"))
       {
             Player3.SetActive (true);
       } 
         }
-    else if (gameObject.tag == "Player4")
+    else if (Player4.tag == "Player4")
         {
            if(Input.GetButton("GamePad4_Jump"))
       {
