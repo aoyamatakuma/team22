@@ -48,7 +48,7 @@ public class TitleStart : MonoBehaviour
 
         if (cntPause == 0 && Input.GetButton("GamePad_A")) 
         {
-            SceneManager.LoadScene("Star");
+            SceneManager.LoadScene("Entry");
         }
     }
 }
