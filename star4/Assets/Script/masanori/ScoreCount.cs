@@ -9,8 +9,6 @@ public class ScoreCount : MonoBehaviour
     private int score,count,runk;
 
     private Text scoreText;
-
-    private float old, nau;
     private bool endFlag;
 
     [SerializeField]
@@ -25,6 +23,8 @@ public class ScoreCount : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        runk = 0;
         count = 0;
         score = 0;
         endFlag = false;
@@ -56,22 +56,26 @@ public class ScoreCount : MonoBehaviour
                 runk++;
             }
         }
+
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        nau = Input.GetAxisRaw("GamePad1_Jump");
+
 
         
-        if (old < nau &&endFlag)
+
+        if (Input.GetButtonDown("GamePad1_Jump") && endFlag)
         {
+            Score.scores.Clear();
             SceneManager.LoadScene("Ending");
         }
-        if (old < nau && !endFlag)
+
+        if (Input.GetButtonDown("GamePad1_B"))
         {
             count = score;
-            old = nau;
             endFlag = true;
 
         }
@@ -96,10 +100,8 @@ public class ScoreCount : MonoBehaviour
             }
             endFlag = true;
         }
-        if (score < 0)
-        {
+        
             scoreText.text = "" + count;
-        }
-        old = nau;
+
     }
 }
