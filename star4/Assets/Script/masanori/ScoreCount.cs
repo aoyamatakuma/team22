@@ -32,7 +32,7 @@ public class ScoreCount : MonoBehaviour
         {
             if (obj.name == "4")
             {
-                score = Score.scores[0];
+                score = Score.scores[2];
             }
             else if (obj.name == "3")
             {
@@ -40,7 +40,7 @@ public class ScoreCount : MonoBehaviour
             }
             else if (obj.name == "2")
             {
-                score = Score.scores[2];
+                score = Score.scores[0];
             }
             else if (obj.name == "1")
             {
