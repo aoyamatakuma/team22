@@ -46,7 +46,7 @@ public class TitleStart : MonoBehaviour
             }
         }
 
-        if (cntPause == 0 && Input.GetButton("GamePad_A")) 
+        if (cntPause == 0 && Input.GetButtonDown("GamePad_A")) 
         {
             SceneManager.LoadScene("Entry");
         }
