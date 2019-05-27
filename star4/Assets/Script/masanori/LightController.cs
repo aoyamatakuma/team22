@@ -22,9 +22,12 @@ public class LightController : MonoBehaviour
     int count=0, oldCount;
 
     int timer;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        Sound.LoadSe("lightup", "スポットライトA");
         time = GameObject.Find("Time");
         oldCount = count;
         spotLight.SetActive(true);
@@ -51,7 +54,7 @@ public class LightController : MonoBehaviour
             {
                 indications[count].SetActive(false);
                 spotLight.transform.position = indications[count].transform.position - new Vector3(0, 0.6f, 0);
-
+                Sound.PlaySe("lightup");
                 oldCount = count;
                 timer = 0;
             }
