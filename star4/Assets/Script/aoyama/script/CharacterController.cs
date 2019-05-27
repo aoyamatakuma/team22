@@ -260,7 +260,7 @@ public class CharacterController : MonoBehaviour
         staminaSlider.value = playerStamina;
         if (playerStamina<100)
         {
-            playerStamina += 0.1f;
+            playerStamina += 0.2f;
         }
         if (playerStamina >= fallStamina&&Input.GetButtonDown(inputAttack) && isAttack == false&&isJump==false&&isBound==false)
         {
