@@ -2329,6 +2329,7 @@ MonoBehaviour:
   - {fileID: 2080363778}
   - {fileID: 2126840055}
   - {fileID: 2045598837}
+  timer: 70
 --- !u!4 &903231264
 Transform:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class LightController : MonoBehaviour
 
     int count=0, oldCount;
 
+    [SerializeField]
     int timer;
 
 
@@ -31,7 +32,6 @@ public class LightController : MonoBehaviour
         time = GameObject.Find("Time");
         oldCount = count;
         spotLight.SetActive(true);
-        timer = 70;
     }
 
     // Update is called once per frame
