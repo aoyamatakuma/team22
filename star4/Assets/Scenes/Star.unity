@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2020,8 +2020,19 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8907517564669319094, guid: b94096ffb4f2fa448910fdfffcdf0fc3,
+        type: 3}
+      propertyPath: lightUp
+      value: 
+      objectReference: {fileID: 573196331}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94096ffb4f2fa448910fdfffcdf0fc3, type: 3}
+--- !u!1 &573196331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6453425034408647639, guid: b94096ffb4f2fa448910fdfffcdf0fc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 573196330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &587468864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,8 +2790,19 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8907517564669319094, guid: b94096ffb4f2fa448910fdfffcdf0fc3,
+        type: 3}
+      propertyPath: lightUp
+      value: 
+      objectReference: {fileID: 940072153}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94096ffb4f2fa448910fdfffcdf0fc3, type: 3}
+--- !u!1 &940072153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6453425034408647639, guid: b94096ffb4f2fa448910fdfffcdf0fc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 940072152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &986365541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,8 +2999,19 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8907517564669319094, guid: b94096ffb4f2fa448910fdfffcdf0fc3,
+        type: 3}
+      propertyPath: lightUp
+      value: 
+      objectReference: {fileID: 1039905062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94096ffb4f2fa448910fdfffcdf0fc3, type: 3}
+--- !u!1 &1039905062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6453425034408647639, guid: b94096ffb4f2fa448910fdfffcdf0fc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1039905061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1043215987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3086,8 +3119,19 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8907517564669319094, guid: b94096ffb4f2fa448910fdfffcdf0fc3,
+        type: 3}
+      propertyPath: lightUp
+      value: 
+      objectReference: {fileID: 1043215988}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94096ffb4f2fa448910fdfffcdf0fc3, type: 3}
+--- !u!1 &1043215988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6453425034408647639, guid: b94096ffb4f2fa448910fdfffcdf0fc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1043215987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1043283059
 GameObject:
   m_ObjectHideFlags: 0

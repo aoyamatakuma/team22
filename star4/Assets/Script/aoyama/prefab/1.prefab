@@ -563,7 +563,7 @@ MonoBehaviour:
   isRight: 0
   isLeftDir: 0
   isRightDir: 0
-  lightUp: {fileID: 0}
+  lightUp: {fileID: 6453425034408647639}
 --- !u!95 &8907517564669319089
 Animator:
   serializedVersion: 3
