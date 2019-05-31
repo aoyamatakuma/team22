@@ -70,7 +70,7 @@ public class ScoreCount : MonoBehaviour
         if (Input.GetButtonDown("GamePad1_Jump") && endFlag)
         {
             Score.scores.Clear();
-            SceneManager.LoadScene("Ending");
+            SceneManager.LoadScene("Title");
         }
 
         if (Input.GetButtonDown("GamePad1_B"))
