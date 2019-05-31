@@ -21,6 +21,7 @@ public class LightController : MonoBehaviour
 
     int count=0, oldCount;
 
+    [SerializeField]
     int timer;
 
 
@@ -31,7 +32,6 @@ public class LightController : MonoBehaviour
         time = GameObject.Find("Time");
         oldCount = count;
         spotLight.SetActive(true);
-        timer = 0;
     }
 
     // Update is called once per frame
@@ -39,8 +39,7 @@ public class LightController : MonoBehaviour
     {
         if (time.GetComponent<Timer>().GetTime())
         {
-            timer++;
-            if (timer >= 240 && oldCount == count)
+            if (Timer.lightTime<timer-8 && oldCount == count)
             {
                 while (oldCount == count)
                 {
@@ -50,13 +49,13 @@ public class LightController : MonoBehaviour
                 indications[count].SetActive(true);
             }
 
-            if (timer >= 300)
+            if (Timer.lightTime<timer-9)
             {
                 indications[count].SetActive(false);
                 spotLight.transform.position = indications[count].transform.position - new Vector3(0, 0.6f, 0);
                 Sound.PlaySe("lightup");
                 oldCount = count;
-                timer = 0;
+                timer = (int)Timer.lightTime;
             }
         }
 
