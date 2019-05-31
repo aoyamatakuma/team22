@@ -22,8 +22,10 @@ public class Timer : MonoBehaviour {
     private bool timeup = false;
     private bool tim ;
 
+    public static float lightTime;
 	void Start () {
 		totalTime = seconds;
+        lightTime = seconds;
 		oldSeconds = 0f;
 		timerText = GetComponentInChildren<Text>();
 		anim=GetComponent<Animator>();
@@ -59,8 +61,8 @@ anim.SetTrigger("Trigger");
 		totalTime -= Time.deltaTime;
 
 		//　再設定
-		
 		seconds = totalTime;
+        lightTime=totalTime;
 
 		//　タイマー表示用UIテキストに時間を表示する
 		if((int)seconds != (int)oldSeconds) {
@@ -75,7 +77,7 @@ anim.SetTrigger("Trigger");
 
         }
 
-        if(totalTime<=10f)
+        if(totalTime<=20f)
         {
             tim = false;
         }
