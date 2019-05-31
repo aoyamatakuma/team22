@@ -569,6 +569,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: 
+  players:
+  - {fileID: 96881230}
+  - {fileID: 1161722423}
+  - {fileID: 769896813}
+  - {fileID: 1280588443}
 --- !u!23 &443631773
 MeshRenderer:
   m_ObjectHideFlags: 0

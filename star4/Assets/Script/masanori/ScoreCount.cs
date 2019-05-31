@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 
 public class ScoreCount : MonoBehaviour
 {
@@ -64,19 +64,11 @@ public class ScoreCount : MonoBehaviour
     void Update()
     {
 
-
-        
-
-        if (Input.GetButtonDown("GamePad1_Jump") && endFlag)
-        {
-            Score.scores.Clear();
-            SceneManager.LoadScene("Title");
-        }
+        //Debug.Log(endFlag);
 
         if (Input.GetButtonDown("GamePad1_B"))
         {
             count = score;
-            endFlag = true;
 
         }
 
@@ -84,9 +76,10 @@ public class ScoreCount : MonoBehaviour
         if (count<score)
         count++;
 
-        if(count==score)
+        if(count==score&&endFlag==false)
         {
-            if(runk==0)
+            Score.EndCount();
+            if (runk==0)
             {
                 gold.SetActive(true);
             }
@@ -99,6 +92,7 @@ public class ScoreCount : MonoBehaviour
                 copper.SetActive(true);
             }
             endFlag = true;
+            
         }
         
             scoreText.text = "" + count;
