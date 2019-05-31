@@ -32,7 +32,7 @@ public class CharacterController : MonoBehaviour
     public bool isLeftDir;//左向き
     public bool isRightDir;//右向き
 
-
+    public GameObject lightUp;
     void Start()
     {
         playerStamina = stamina;//スタミナ初期値
@@ -91,8 +91,8 @@ public class CharacterController : MonoBehaviour
     {
         Jump();
         Move();
-        Attack();        
-        
+        Attack();
+        Lightup();
         if (Input.GetButton(inputAppeal) && isJump == false)
         {
             isJump = true;
@@ -335,5 +335,17 @@ public class CharacterController : MonoBehaviour
         {
             rigidPlayer.velocity = new Vector2(-3, 5);
         }
+    }
+
+    void Lightup()
+    {
+        if(islight)
+        {
+            lightUp.SetActive(true);
+
+            return;
+        }
+
+        lightUp.SetActive(false);
     }
 }
