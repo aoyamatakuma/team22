@@ -46,6 +46,7 @@ public class Score : MonoBehaviour
 
         if(isEndScore && Input.GetButton("GamePad1_Jump"))
         {
+            scores.Clear();
             SceneManager.LoadScene("Title");
         }
     }

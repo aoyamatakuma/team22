@@ -50,6 +50,8 @@ public class CharacterController : MonoBehaviour
         isAttack = false;
         islight = false;
 
+        Sound.LoadSe("appeal", "歓声(中)");
+
         //ここから先はゲームパッドの取得に使います。
         if (gameObject.tag == "Player1")
         {
