@@ -8,6 +8,7 @@ public class EndSelect : MonoBehaviour
 {
     Animator anim;
     int cntPause;
+    bool isEnd;
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +16,16 @@ public class EndSelect : MonoBehaviour
         anim = GetComponent<Animator>();
         cntPause = 0;
         anim.SetTrigger("Off");
+        isEnd = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isEnd == true)
+        {
+            return;
+        }
         if (Input.GetAxis("GamePad_Vertical") > 0.9f)
         {
             cntPause--;
@@ -49,6 +55,11 @@ public class EndSelect : MonoBehaviour
         if (cntPause == 1 && Input.GetButton("GamePad_A"))
         {
             Application.Quit();
+
+        }
+        if (Input.GetButtonDown("GamePad_A"))
+        {
+            isEnd = true;
         }
     }
 }

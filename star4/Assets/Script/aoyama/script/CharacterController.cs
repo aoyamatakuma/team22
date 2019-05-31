@@ -342,10 +342,8 @@ public class CharacterController : MonoBehaviour
         if(islight)
         {
             lightUp.SetActive(true);
-
             return;
         }
-
         lightUp.SetActive(false);
     }
 }

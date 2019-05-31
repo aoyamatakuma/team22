@@ -11,6 +11,8 @@ public class TitleStart : MonoBehaviour
     private GameObject fadeInPrefab;
     private GameObject fadeInInstance;
 
+    bool isEnd;
+
     Animator anim;
     int cntPause;
 
@@ -21,11 +23,16 @@ public class TitleStart : MonoBehaviour
         anim = GetComponent<Animator>();
         cntPause = 0;
         anim.SetTrigger("On");
+        isEnd = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(isEnd==true)
+        {
+            return;
+        }
         if (Input.GetAxis("GamePad_Vertical") > 0.9f)
         {
             cntPause--;
@@ -60,6 +67,10 @@ public class TitleStart : MonoBehaviour
                 fadeInInstance = GameObject.Instantiate(fadeInPrefab) as GameObject;
             }
                 StartCoroutine("End");
+        }
+        if (Input.GetButtonDown("GamePad_A"))
+        {
+            isEnd = true;
         }
     }
     public IEnumerator End()
