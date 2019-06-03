@@ -17,51 +17,38 @@ public class Spotlight : MonoBehaviour
     {
         time = 0;
         lightNum = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         time++;
         Vector3 pos = spotLight.transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(pos, new Vector3(0,-1), 10,layermask);
+        RaycastHit2D hit = Physics2D.Raycast(pos, new Vector2(0, - 1f), 1, layermask);
 
         // 可視化
         Debug.DrawRay(pos, new Vector3(0, -1, 0), Color.black, 1);
-
+        Debug.Log(hit.collider);
+        Debug.Log(Players.Count);
         // コンソールにhitしたGameObjectを出力
         if (hit.collider)
         {
             //他に誰もスポットライトに触ってなければislightをtrueにする
-            if (Players.Count==0)
+            if (Players.Count == 0)
             {
                 Players.Add(hit.collider.gameObject);
                 Players[0].GetComponent<CharacterController>().islight = true;
-                Debug.Log(Players.Count);
+
             }
-            Debug.Log(hit.collider);
-        }
-        else 
-        {
-            if (Players.Count >= 1)
-            {
-                Players[0].GetComponent<CharacterController>().islight = false;
-            }
-            Players.Clear();
+            if(hit.collider.name==Players[0].name)
+            return;
         }
 
-        ////スポットライトの位置を一定時間ごとに変更する
-        //if (time >= 30)
-        //{
-            
-        //    spotLight.transform.position = lightPos[lightNum].transform.position;
-        //    lightNum++;
-        //    time = 0;
-        //    if (lightNum > 2)
-        //    {
-        //        lightNum = 0;
-        //    }
-        //}
+
+        Players[0].GetComponent<CharacterController>().islight = false;
+        Players.Clear();
     }
 
     
